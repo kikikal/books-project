@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SheCodes Basics Add-on Project</title>
+    <style>
+      body {
+        background-color: lightcoral;
+        font-family: Arial, Helvetica, sans-serif;
+        text-align: center;
+      }
+      p {
+        line-height: 25px;
+        padding: 0 0 20px 0;
+      }
+      h1 {
+        background: rgba(240, 128, 128, 0.4);
+      }
+      .learnMoreOnWikipediaLink {
+        color: lightcoral;
+        text-decoration: none;
+      }
+      .learnMoreOnWikipediaLink:hover {
+        text-decoration: underline;
+      }
+      .pageBody {
+        background: white;
+        width: 70%;
+        display: block;
+        margin: 20px auto;
+        border-radius: 10px;
+        padding: 20px;
+      }
+      .darkThemeButton {
+        border-radius: 5px;
+        padding: 10px 20px;
+        color: white;
+        background: black;
+        border: 1px solid black;
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+        font-size: 14px;
+        margin: 5px 0 0 80%;
+      }
+      .darkThemeButton:hover {
+        color: black;
+        background: white;
+        cursor: pointer;
+      }
+      .browseBooksButton {
+        background: white;
+        color: lightcoral;
+        border: 2px solid lightcoral;
+        border-radius: 5px;
+        padding: 10px 20px;
+        margin: 20px;
+        font-size: 18px;
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+      }
+      .browseBooksButton:hover {
+        background: lightcoral;
+        color: white;
+        cursor: pointer;
+      }
+      .keyImage {
+        transition: all 200ms ease-in-out;
+        border-radius: 10px;
+        width: 100%;
+      }
+      .keyImage:hover {
+        transform: scale(1.1);
+        filter: contrast(60%);
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 10px;
+        margin: 5px 0;
+      }
+      .grid img {
+        border-radius: 10px;
+        width: 100%;
+        transition: all 200ms ease-in-out;
+      }
+      .grid img:hover {
+        transform: scale(1.5);
+      }
+      .darkTheme {
+        background: black;
+        color: white;
+      }
+      .darkTheme .pageBody {
+        background: rgb(103, 57, 57);
+      }
+      .darkTheme h1 {
+        background: rgba(0, 0, 0, 0.3);
+      }
+      .darkTheme .darkThemeButton {
+        background: white;
+        color: black;
+      }
+      .darkTheme .darkThemeButton:hover {
+        border: 1px solid white;
+        background: black;
+        color: white;
+      }
+      .darkTheme .browseBooksButton {
+        border: 1px solid white;
+        background: rgb(103, 57, 57);
+        color: white;
+      }
+      .darkTheme .browseBooksButton:hover {
+        background: white;
+        color: rgb(103, 57, 57);
+      }
+      .darkTheme .learnMoreOnWikipediaLink {
+        color: rgb(249, 164, 164);
+      }
+      .darkTheme .learnMoreOnWikipediaLink:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <button class="darkThemeButton">Dark Theme</button>
+    <div class="pageBody">
+      <h1>📖Books📖</h1>
+      <h2>I love reading</h2>
+      <a href="https://en.wikipedia.org/wiki/Book" target="_blank">
+        <img
+          src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/111/792/original/tom-hermans-9BoqXzEeQqM-unsplash.jpg?1706008793"
+          class="keyImage"
+      /></a>
+      <div class="grid">
+        <img
+          src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/111/793/original/gulfer-ergin-LUGuCtvlk1Q-unsplash.jpg?1706008845"
+        />
+        <img
+          src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/111/795/original/ed-robertson-eeSdJfLfx1A-unsplash.jpg?1706008945"
+        />
+        <img
+          src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/111/796/original/olga-tutunaru-plbb7pkEjkQ-unsplash.jpg?1706009046"
+        />
+        <img
+          src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/111/797/original/sixteen-miles-out-GVhAezjtX-4-unsplash.jpg?1706009148"
+        />
+      </div>
+      <p>
+        A book is a medium for recording information in the form of writing or
+        images, typically composed of many pages bound together and protected by
+        a cover. It can also be a handwritten or printed work of fiction or
+        nonfiction, usually on sheets of paper fastened or bound together within
+        covers.
+      </p>
+      <a
+        href="https://en.wikipedia.org/wiki/Book"
+        class="learnMoreOnWikipediaLink"
+        target="_blank"
+        >Learn more on Wikipedia</a
+      >
+      <br />
+      <a href="https://www.goodreads.com/" target="_blank">
+        <button class="browseBooksButton">Browse Books</button>
+      </a>
+    </div>
+    <footer>Coded by Christina Kalyvas</footer>
+    <script>
+      function changeThemeButtonLabel(updatedLabel) {
+        let changeThemeLabel = document.querySelector(".darkThemeButton");
+        changeThemeLabel.innerHTML = updatedLabel;
+      }
+      function changeTheme() {
+        let bodyClass = document.querySelector("body");
+        if (bodyClass.classList.contains("darkTheme")) {
+          bodyClass.classList.remove("darkTheme");
+          changeThemeButtonLabel("Dark Theme");
+        } else {
+          bodyClass.classList.add("darkTheme");
+          changeThemeButtonLabel("Light Theme");
+        }
+      }
+      let changeThemeAction = document.querySelector(".darkThemeButton");
+      changeThemeAction.addEventListener("click", changeTheme);
+    </script>
+  </body>
+</html>
